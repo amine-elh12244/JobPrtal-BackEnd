@@ -22,13 +22,13 @@ public class OffreEmploi {
 
     @ManyToOne
     // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @JsonBackReference
+    @JsonBackReference("employeur-offre")
     @JoinColumn(name = "employeur_id")
     private Employeur employeur;
 
     @ManyToOne
     // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @JsonBackReference
+    @JsonBackReference("domaine-offre")
     @JoinColumn(name = "domaine_id")
     private Domaine domaine;
 
@@ -56,13 +56,13 @@ public class OffreEmploi {
 
     @ManyToOne
     // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @JsonBackReference
+    @JsonBackReference("ville-offre")
     @JoinColumn(name = "ville_id")
     private Ville ville;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @JsonBackReference
+    @JsonBackReference("image-offre")
     @JoinColumn(name="img_id")
     private Image image;
 

@@ -3,8 +3,7 @@ package com.example.portailemploi.entities;
 
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Ville {
 
     @Id
@@ -26,7 +26,7 @@ public class Ville {
 
     @OneToMany(mappedBy = "ville")
     //  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @JsonManagedReference
+    @JsonManagedReference("ville-offre")
     private List<OffreEmploi> OffreEmploi;
 
 

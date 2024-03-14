@@ -19,10 +19,11 @@ public class Image {
     private String nom;
     private String type;
     @Lob
+    @Column(columnDefinition="MEDIUMBLOB")
     private byte[] data;
     @OneToOne(fetch = FetchType.LAZY ,mappedBy = "image")
     //@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @JsonManagedReference
+    @JsonManagedReference("image-offre")
     private OffreEmploi offreEmploi;
 
     public Image(String nom, String type, byte[] data) {
@@ -30,7 +31,4 @@ public class Image {
         this.type = type;
         this.data = data;
     }
-
-
 }
-
