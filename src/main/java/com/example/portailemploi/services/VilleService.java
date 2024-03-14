@@ -2,6 +2,7 @@ package com.example.portailemploi.services;
 
 
 import com.example.portailemploi.dao.VilleRepository;
+import com.example.portailemploi.entities.OffreEmploi;
 import com.example.portailemploi.entities.Ville;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,9 @@ public class VilleService {
 
     public void deleteVille(Long id) {
         villeRepository.deleteById(id);
+    }
+
+    public List<OffreEmploi> getOffresEmploiByVilleId(Long villeId) {
+        return villeRepository.findOffreEmploiById(villeId);
     }
 }

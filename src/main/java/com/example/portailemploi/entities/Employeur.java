@@ -16,6 +16,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Employeur {
 
 
@@ -30,7 +31,7 @@ public class Employeur {
     private String telephone ;
     @OneToMany(mappedBy = "employeur" )
     // @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @JsonManagedReference
+    @JsonManagedReference("employeur-offre")
     private List<OffreEmploi> offresEmploi;
 
 
